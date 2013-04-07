@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Redbolts.TestCancelMethod</Name>
+    <Assembly>Redbolts.TestCancelMethod.dll</Assembly>
+    <FullClassName>Redbolts.TestCancelMethod.CancelApplication</FullClassName>
+    <ClientId>631B35B5-5BBF-4917-8DC1-89AB0FA174B9</ClientId>
+    <VendorId>REDB</VendorId>
+    <VendorDescription>Redbolts.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

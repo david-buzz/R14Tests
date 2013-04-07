@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D7BA6382-32B7-4A60-A01D-ED7EFF8CC459}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Redbolts.TestCancelMethod</RootNamespace>
+    <AssemblyName>Redbolts.TestCancelMethod</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RevitAPI">
+      <HintPath>C:\Program Files\Autodesk\Revit Architecture 2014\RevitAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>C:\Program Files\Autodesk\Revit Architecture 2014\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CancelApplication.cs" />
+    <Compile Include="Commands\CancelWorkCommand.cs" />
+    <Compile Include="Commands\QueueNoOutputWorkCommand.cs" />
+    <Compile Include="UI\IOutputCallback.cs" />
+    <Compile Include="UI\OutputCallback.cs" />
+    <Compile Include="Commands\QueueOutputWorkCommand.cs" />
+    <Compile Include="Composition\CommandContainer.cs" />
+    <Compile Include="Composition\IButtonMetaData.cs" />
+    <Compile Include="Composition\ButtonAttribute.cs" />
+    <Compile Include="Extensions\RibbonExtensions.cs" />
+    <Compile Include="IdleQueue.cs" />
+    <Compile Include="Images\ImageUtil.cs" />
+    <Compile Include="Images\ImageUtilBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Composition\IRibbonItemMetaData.cs" />
+    <Compile Include="RibbonConstants.cs" />
+    <Compile Include="UI\CancelWindow.xaml.cs">
+      <DependentUpon>CancelWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workers\IWorker.cs" />
+    <Compile Include="Workers\FilterWorker.cs" />
+    <Compile Include="RevitContext.cs" />
+    <Compile Include="Workers\FilterNoOutputWorker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\RevitR14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="UI\CancelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetDir)\*.* C:\ProgramData\Autodesk\Revit\Addins\2014\</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
