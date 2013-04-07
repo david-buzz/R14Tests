@@ -13,8 +13,7 @@ There are 3 revit commands. 'CancelWorkUICommand' starts a window on another thr
 
 The IdleQueue bit of code that executes the worker method:
 
-'''c#
-task = new Task(() =>
+    task = new Task(() =>
     {
         RevitContext.BindToken(_cts.Token);
         RevitContext.UIApplication = application;
@@ -29,6 +28,5 @@ task = new Task(() =>
         var workerObject = (IWorker)Activator.CreateInstance(workerType);
         workerObject.DoWork();
     },_cts.Token);
-task.RunSynchronously(TaskScheduler.Current);
-task.Wait(_cts.Token);
-'''
+    task.RunSynchronously(TaskScheduler.Current);
+    task.Wait(_cts.Token);
