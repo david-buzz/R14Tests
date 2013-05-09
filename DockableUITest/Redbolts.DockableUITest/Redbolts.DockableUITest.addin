@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Redbolts.DockableUITest</Name>
+    <Assembly>Redbolts.DockableUITest.dll</Assembly>
+    <AddInId>9E7A16F9-9A21-451A-9E54-AFEC62CF66B5</AddInId>
+    <FullClassName>Redbolts.DockableUITest.ApplicationCommand</FullClassName>
+    <VendorId>REDB</VendorId>
+    <VendorDescription>Autodesk, www.redbolts.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
