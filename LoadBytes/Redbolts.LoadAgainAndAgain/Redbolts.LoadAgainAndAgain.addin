@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Assembly>Redbolts.LoadAgainAndAgain.dll</Assembly>
+    <ClientId>af1fbb7e-d88c-4488-976e-c94c1b68e516</ClientId>
+    <FullClassName>Redbolts.LoadAgainAndAgain.Command</FullClassName>
+    <Text>LoadAgainAndAgain</Text>
+    <Description>""</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>REDB</VendorId>
+    <VendorDescription>Redbolts Ltd, www.redbolts.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
